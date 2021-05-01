@@ -10,6 +10,22 @@
 
 <div class="container">
 <h2>Player Results</h2>
+<div class="card-deck mb-2">
+  <% results.forEach(function(r) { %>
+    <div class="card border-secondary"style="max-width: 12rem;">
+      <!--<img class="card-img" src="' + ob.ICON +'" sytle="max-width: 20rem;">-->
+      <div class="card-body">
+        <h4 class="card-title"><%= r.name %></h4>
+        <h4 class="card-subtitle mb-2">CLASS:<%= r.skill %></h4>
+        <h4 class="card-subtitle mb-4"><%= r.id %></h4>
+        <div class="text-right">
+          <input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
 
 <ul>
     <% results.forEach(function(r) { %>
