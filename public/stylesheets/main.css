@@ -17,6 +17,10 @@
   top: -1px;
 }
 
+.table th {
+  white-space: nowrap;
+}
+
 .jumbotron {
   background: #532F8C;
   color: white;
