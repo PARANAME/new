@@ -35,10 +35,13 @@
 
 </div>
 <script>
+var count = 1;
 $('.btn').on('click', function(){
+  alert(count);
   var obj = event.target;
   var st = 'img_id_'+obj.id.toString();
-  $('.'+st).attr('src', 'icon_endo2.png');
+  $('.'+st).attr('src', count+'.png');
+  count += 1;
 });
 </script>
 
