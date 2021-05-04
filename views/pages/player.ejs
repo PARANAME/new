@@ -13,7 +13,7 @@
 <div class="card-deck mb-2">
   <% results.forEach(function(r) { %>
     <div class="card border-secondary"style="max-width: 12rem;">
-      <img class="card-img" src="<%= r.path %>" sytle="max-width: 20rem;">
+      <img class="card-img id_<%= r.id %>" src="<%= r.path %>" sytle="max-width: 20rem;">
       <div class="card-body">
         <h4 class="card-title"><%= r.name %></h4>
         <h4 class="card-subtitle mb-2">CLASS:<%= r.skill %></h4>
@@ -34,6 +34,11 @@
 </ul>
 
 </div>
+<script>
+$('.id_1').on('click', function(){  
+  $('.id_1').attr('src', 'icon_endo2.png');
+});
+</script>
 
 </body>
 </html>
