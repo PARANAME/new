@@ -13,13 +13,13 @@
 <div class="card-deck mb-2">
   <% results.forEach(function(r) { %>
     <div class="card border-secondary"style="max-width: 12rem;">
-      <img class="card-img id_<%= r.id %>" src="<%= r.path %>" sytle="max-width: 20rem;">
+      <img class="card-img img_id_<%= r.id %>" src="<%= r.path %>" sytle="max-width: 20rem;">
       <div class="card-body">
         <h4 class="card-title"><%= r.name %></h4>
         <h4 class="card-subtitle mb-2">CLASS:<%= r.skill %></h4>
         <h4 class="card-subtitle mb-4"><%= r.id %></h4>
         <div class="text-right">
-          <input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">
+          <input type="button" class="btn btn-secondary btn_id_<%= r.id %>" value="Select">
         </div>
       </div>
     </div>
@@ -35,8 +35,8 @@
 
 </div>
 <script>
-$('.id_1').on('click', function(){  
-  $('.id_1').attr('src', 'icon_endo2.png');
+$('.btn_id_1').on('click', function(){  
+  $('.img_id_1').attr('src', 'icon_endo2.png');
 });
 </script>
 
