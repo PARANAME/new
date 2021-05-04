@@ -19,7 +19,7 @@
         <h4 class="card-subtitle mb-2">CLASS:<%= r.skill %></h4>
         <h4 class="card-subtitle mb-4"><%= r.id %></h4>
         <div class="text-right">
-          <input type="button" class="btn btn-secondary btn_id_<%= r.id %>" value="Select">
+          <input type="button" class="btn btn-secondary" value="Select" id="<%= r.id %>">
         </div>
       </div>
     </div>
@@ -35,8 +35,9 @@
 
 </div>
 <script>
-$('.btn_id_1').on('click', function(){  
-  $('.img_id_1').attr('src', 'icon_endo2.png');
+$('.btn').on('click', function(){
+  var obj = event.target;
+  $('#img_id_'+obj.id).attr('src', 'icon_endo2.png');
 });
 </script>
 
