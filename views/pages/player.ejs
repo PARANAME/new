@@ -37,10 +37,8 @@
 <script>
 $('.btn').on('click', function(){
   var obj = event.target;
-  alert(obj.id);
-  var st = '#img_id_'+obj.id.toString();
-  alert(st);
-  $(st).attr('src', 'icon_endo2.png');
+  var st = 'img_id_'+obj.id.toString();
+  $('#'+st).attr('src', 'icon_endo2.png');
 });
 </script>
 
