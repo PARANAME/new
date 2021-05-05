@@ -65,21 +65,21 @@
                     <img src="icon_hara2.png" class="img-fluid">
                     </div>
                 </div>  
-                <div class="col">  
+                <div class="col" id='score_1_1'>  
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_1_2'>
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_1_3'>
                 </div>
         
-                <div class="col">
+                <div class="col" id='score_1_4'>
                 </div>
 
                 <div class="col">
                     <div class="rounded d-flex align-items-center justify-content-center">
-                        <button class="btn btn-success btn-circle m-1"><i class="fa fa-check">point</i></button>
+                        <button class="btn btn-success btn-circle m-1" id="1">point</button>
                     </div>
                     <!--<input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">-->
                 </div>  
@@ -143,5 +143,26 @@
             </div>
 
         </div>
+        <script>
+            var count = 1;
+            var Order = [];
+            $('.btn-circle').on('click', function(){
+
+              var obj = event.target;
+              alert(obj);
+              var st = 'score_'+obj.id.toString()+'_'+count.toString();
+//              $('.'+st).attr('src', count+'.png');
+
+              alert(st);
+              document.getElementById(st).innerHTML = '<img src="'+getscoredraw(1)+'" class="img-fluid">';
+              count += 1;
+            });    
+
+            function getscoredraw(point) {
+                var RandInt = Math.floor(Math.random() * 3)+1;
+                return 'single_' + RandInt.toString() + '.png';
+            }
+
+        </script>
     </body>
 </html>
