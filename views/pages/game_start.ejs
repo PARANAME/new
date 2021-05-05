@@ -77,6 +77,9 @@
                 <div class="col" id='score_1_4'>
                 </div>
 
+                <div class="col" id='score_1_5'>
+                </div>
+
                 <div class="col">
                     <div class="rounded d-flex align-items-center justify-content-center">
                         <button class="btn btn-success btn-circle m-1" id="1">point</button>
@@ -145,6 +148,8 @@
         </div>
         <script>
             var count = 1;
+            var point = 0;
+            var overpoint = 0;
             var Order = [];
             $('.btn-circle').on('click', function(){
 
@@ -154,7 +159,13 @@
 //              $('.'+st).attr('src', count+'.png');
 
               alert(st);
-              document.getElementById(st).innerHTML = '<img src="'+getscoredraw(1)+'" class="img-fluid">';
+              if (count < 5){
+                document.getElementById(st).innerHTML = '<img src="'+getscoredraw(1)+'" class="img-fluid">';
+              } else {
+                overpoint +=1;
+                document.getElementById('score_1_5').innerHTML = '<h4> + '+overpoint+'</h4>';
+              }
+
               count += 1;
             });    
 
