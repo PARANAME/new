@@ -1,5 +1,6 @@
 const cool = require('cool-ascii-faces')
-const express = require('express')
+const express = require('express');
+const { request } = require('http');
 const path = require('path')
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -12,10 +13,22 @@ const PORT = process.env.PORT || 5000
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(express.json()) // for parsing application/json
+  .use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/game', (req, res) => res.render('pages/game_start'))
+  .get('/game', (req, res) => {
+    console.log("game")
+    res.render('pages/game_start')
+  })
+  .post('/game',(req, res, next) => {
+    console.log("post!!")
+    //var msg = req.body['order'];
+    //res.setHeader('Content-Type', 'text/plain');
+    console.log(req.body.order);
+    res.render('pages/game_start')
+  })
   .get('/db', async(req,res)=>{
     try {
       const client = await pool.connect()

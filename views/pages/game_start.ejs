@@ -144,6 +144,10 @@
                     <!--<input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">-->
                 </div>  
             </div>
+            <form method="post" action="/game">
+                <input type="hidden" name="order" value="please accept"> 
+                <input type="submit" value="OrderChange" class="btn btn-primary CO">
+            </form>
 
         </div>
         <script>
@@ -167,7 +171,7 @@
               }
 
               count += 1;
-            });    
+            });
 
             function getscoredraw(point) {
                 var RandInt = Math.floor(Math.random() * 3)+1;
