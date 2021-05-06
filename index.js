@@ -20,14 +20,20 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/game', (req, res) => {
     console.log("game")
-    res.render('pages/game_start')
+    var data = {
+      Order:''
+    };
+    res.render('pages/game_start',data);
   })
   .post('/game',(req, res, next) => {
     console.log("post!!")
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
     console.log(req.body.order);
-    res.render('pages/game_start')
+    var data = {
+      Order:req.body.order
+    };
+    res.render('pages/game_start',data);
   })
   .get('/db', async(req,res)=>{
     try {
