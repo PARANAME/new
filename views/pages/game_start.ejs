@@ -62,12 +62,13 @@
                 </tbody>
             </table>
             </div>
+            <% var membercount = 3; %>
             <div class="row mb-4">
                 <div class="col-6">
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckSide">
                         <label class="form-check-label" for="flexCheckDefault">
                           Side
                         </label>
@@ -75,7 +76,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckNine">
                         <label class="form-check-label" for="flexCheckChecked">
                           9 Ball
                         </label>
@@ -124,21 +125,24 @@
                     <img src="icon_kimura3.png" class="img-fluid">
                     </div>
                 </div>  
-                <div class="col">  
+                <div class="col" id='score_2_1'>  
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_2_2'>
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_2_3'>
                 </div>
         
-                <div class="col">
+                <div class="col" id='score_2_4'>
+                </div>
+
+                <div class="col" id='score_2_5'>
                 </div>
 
                 <div class="col">
                     <div class="rounded d-flex align-items-center justify-content-center">
-                        <button class="btn btn-success btn-circle m-1"><i class="fa fa-check">point</i></button>
+                        <button class="btn btn-success btn-circle m-1" id="2">point</button>
                     </div>
                     <!--<input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">-->
                 </div>  
@@ -152,21 +156,24 @@
                     <img src="icon_hara2.png" class="img-fluid">
                     </div>
                 </div>  
-                <div class="col">  
+                <div class="col" id='score_3_1'>  
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_3_2'>
                 </div>
               
-                <div class="col">
+                <div class="col" id='score_3_3'>
                 </div>
         
-                <div class="col">
+                <div class="col" id='score_3_4'>
+                </div>
+
+                <div class="col" id='score_3_5'>
                 </div>
 
                 <div class="col">
                     <div class="rounded d-flex align-items-center justify-content-center">
-                        <button class="btn btn-success btn-circle m-1"><i class="fa fa-check">point</i></button>
+                        <button class="btn btn-success btn-circle m-1" id="3">point</button>
                     </div>
                     <!--<input type="button" class="btn btn-secondary" value="Select" onclick="player_select();">-->
                 </div>  
@@ -191,12 +198,18 @@
             </div>
         </div>
         <script>
-            var count = 1;
             var point = 0;
-            var overpoint = 0;
             var Order = [];
+            var memberpoint =[];
+            var memberoverpoint = [];
+            var membercounta = [];
             var takeover = "<%= Order %>";
             var takeoverOrder = takeover.split('_');
+            for (let i = 0; i < <%= membercount %>; i++){
+                memberpoint.push(0);
+                memberoverpoint.push(0);
+                membercounta.push(1);
+            }
 
             if ( typeof takeover === "undefined"){
                 alert(takeoverOrder[1]);
@@ -204,24 +217,40 @@
             $('.btn-circle').on('click', function(){
 
               var obj = event.target;
-              alert(obj);
-              var st = 'score_'+obj.id.toString()+'_'+count.toString();
-//              $('.'+st).attr('src', count+'.png');
-
-              alert(st);
-              if (count < 5){
-                document.getElementById(st).innerHTML = '<img src="'+getscoredraw(1)+'" class="img-fluid">';
-              } else {
-                overpoint +=1;
-                document.getElementById('score_1_5').innerHTML = '<h4> + '+overpoint+'</h4>';
+              var point = 1;
+              if(document.getElementById('CheckSide').checked){
+                  point = point * 2;
               }
-
-              count += 1;
+              if(document.getElementById('CheckNine').checked){
+                  point = point * 2;
+              }
+              memberpoint[obj.id-1]+=point;
+              alert(memberpoint[obj.id-1]);
+//              alert(obj);
+              var st = 'score_'+obj.id.toString()+'_'+membercounta[obj.id-1].toString();
+//              $('.'+st).attr('src', count+'.png');
+//              alert(st);
+              if (membercounta[obj.id-1] < 5){
+                document.getElementById(st).innerHTML = '<img src="'+getscoredraw(point)+'" class="img-fluid">';
+              } else {
+                memberoverpoint[obj.id-1] +=point;
+                document.getElementById('score_'+obj.id.toString()+'_5').innerHTML = '<h4> + '+memberoverpoint[obj.id-1]+'</h4>';
+              }
+              membercounta[obj.id-1] += 1;
             });
 
             function getscoredraw(point) {
-                var RandInt = Math.floor(Math.random() * 3)+1;
-                return 'single_' + RandInt.toString() + '.png';
+                if(point==1){
+                    var RandInt = Math.floor(Math.random() * 3)+1;
+                    return 'single_' + RandInt.toString() + '.png';
+                }
+                else if(point==2){
+                    var RandInt = Math.floor(Math.random() * 3)+1;
+                    return 'double_' + RandInt.toString() + '.png';
+                }
+                else {
+                    return 'two_double_1.png'
+                }
             }
 
         </script>
