@@ -219,6 +219,7 @@
             var point = 0;
             var Order = [];
             var memberpoint =[];
+            var prememberpoint =[];
             var memberoverpoint = [];
             var membercounta = [];
             var takeover = "<%= Order %>";
@@ -227,6 +228,7 @@
                 memberpoint.push(0);
                 memberoverpoint.push(0);
                 membercounta.push(1);
+                prememberpoint.push(0);
             }
 
             if ( typeof takeover === "undefined"){
@@ -258,9 +260,30 @@
             $('#next').on('click', function(){
                 for (let i = 0; i < <%= membercount %>; i++)
                 {
-                    document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = memberpoint[i];
+                    var mypoint = 0;
+                    for (let j = 0; j < <%= membercount %>; j++){
+                        if (i==j){
+                            mypoint += memberpoint[j]*2;
+                        } else {
+                            mypoint -= memberpoint[j];
+                        }
+                    }
+                    if(Round==1){
+                        document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = mypoint+prememberpoint[i];
+                    } else{
+                        document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = mypoint+Number(document.getElementById('t_'+(i+1)+'_'+(Round-1)).textContent);
+                    }
+
                 }
                 Round +=1;
+                for (let i = 0; i < <%= membercount %>; i++)
+                {
+                    memberpoint[i]=0;
+                    membercounta[i]=1;
+                    for (let j = 0; j < 5; j++){
+                        document.getElementById('score_'+(i+1)+'_'+(j+1)).innerHTML='';
+                    }
+                }
             });
             function getscoredraw(point) {
                 if(point==1){
