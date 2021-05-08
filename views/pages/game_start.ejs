@@ -42,22 +42,42 @@
                 <tbody>
                     <tr>
                         <th scope="row">見出しセル</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td id="t_1_1"></td>
+                        <td id="t_1_2"></td>
+                        <td id="t_1_3"></td>
+                        <td id="t_1_4"></td>
+                        <td id="t_1_5"></td>
+                        <td id="t_1_6"></td>
+                        <td id="t_1_7"></td>
+                        <td id="t_1_8"></td>
+                        <td id="t_1_9"></td>
+                        <td id="t_1_10"></td>
                     </tr>
                     <tr>
                         <th scope="row">見出しセル</th>
+                        <td id="t_2_1"></td>
+                        <td id="t_2_2"></td>
+                        <td id="t_2_3"></td>
+                        <td id="t_2_4"></td>
+                        <td id="t_2_5"></td>
+                        <td id="t_2_6"></td>
+                        <td id="t_2_7"></td>
+                        <td id="t_2_8"></td>
+                        <td id="t_2_9"></td>
+                        <td id="t_2_10"></td>
                     </tr>
                     <tr>
                         <th scope="row">見出しセル</th>
+                        <td id="t_3_1"></td>
+                        <td id="t_3_2"></td>
+                        <td id="t_3_3"></td>
+                        <td id="t_3_4"></td>
+                        <td id="t_3_5"></td>
+                        <td id="t_3_6"></td>
+                        <td id="t_3_7"></td>
+                        <td id="t_3_8"></td>
+                        <td id="t_3_9"></td>
+                        <td id="t_3_10"></td>
                     </tr>
                 </tbody>
             </table>
@@ -190,14 +210,12 @@
                     </div>
                 </div>
                 <div class="col">
-                    <form method="post" action="/game">
-                        <input type="hidden" name="order" value="1_4_3_2"> 
-                        <input type="submit" value="Next" class="btn btn-primary">
-                    </form>
+                    <button class="btn btn-primary" id="next">Next</button>
                 </div>
             </div>
         </div>
         <script>
+            var Round = 1;
             var point = 0;
             var Order = [];
             var memberpoint =[];
@@ -215,7 +233,6 @@
                 alert(takeoverOrder[1]);
             }
             $('.btn-circle').on('click', function(){
-
               var obj = event.target;
               var point = 1;
               if(document.getElementById('CheckSide').checked){
@@ -238,7 +255,13 @@
               }
               membercounta[obj.id-1] += 1;
             });
-
+            $('#next').on('click', function(){
+                for (let i = 0; i < <%= membercount %>; i++)
+                {
+                    document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = memberpoint[i];
+                }
+                Round +=1;
+            });
             function getscoredraw(point) {
                 if(point==1){
                     var RandInt = Math.floor(Math.random() * 3)+1;
