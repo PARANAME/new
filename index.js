@@ -59,6 +59,20 @@ express()
       res.send("Error "+err);
     }
   })
+  .post('/player', async(req,res)=>{
+    console.log(req.body.add_name+","+req.body.add_class);
+    
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM player');
+      const results = { 'results': (result) ? result.rows : null };
+      res.render('pages/player', results );
+      client.release();
+    } catch(err){
+      console.error(err);
+      res.send("Error "+err);
+    }
+  })
   .get('/cool',(req,res) => res.send(cool()))
   .get('/times',(req,res)=> res.send(showTimes()))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
