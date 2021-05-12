@@ -69,7 +69,7 @@ express()
       console.log(result);
       console.log("change");
       const results = { 'results': (result) ? result.rows : null };
-      console.log(result);
+      console.log(results);
       res.render('pages/player', results );
       client.release();
     } catch(err){
