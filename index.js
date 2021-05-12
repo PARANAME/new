@@ -64,7 +64,7 @@ express()
     
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT * FROM player');
+      const result = await client.query('SELECT max(id) FROM player');
       
       console.log(result);
       console.log("change");
