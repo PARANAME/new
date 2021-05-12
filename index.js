@@ -69,7 +69,7 @@ express()
       console.log(result);
       console.log("change");
       const results = { 'results': (result) ? result.rows : null };
-      console.log(results[0].max);
+      console.log(results[0]);
       res.render('pages/player', results );
       client.release();
     } catch(err){
