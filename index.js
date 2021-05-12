@@ -65,7 +65,10 @@ express()
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM player');
+      console.log(results);
+      console.log("change");
       const results = { 'results': (result) ? result.rows : null };
+      console.log(result);
       res.render('pages/player', results );
       client.release();
     } catch(err){
