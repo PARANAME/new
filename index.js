@@ -75,7 +75,7 @@ express()
       console.log("maxid:"+maxid);
 
       const text = 'INSERT INTO player VALUES($1, $2, $3, $4)'
-      const values = [maxid,req.body.add_name,req.body.add_class,’icon_test.png’]
+      const values = [maxid,req.body.add_name,req.body.add_class,'icon_test.png']
       // callback
       client.query(text, values, (err, res) => {
         if (err) {
