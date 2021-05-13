@@ -64,14 +64,12 @@ express()
     
     try {
       const client = await pool.connect()
-      const result = await client.query('SELECT max(id) FROM player');
+      const result_max = await client.query('SELECT max(id) FROM player');
       
-      console.log(result);
+      console.log(result_max);
 
-      var maxid = result.rows[0].max;
+      var maxid = result_max.rows[0].max;
       maxid += 1;
-
-//      const results = { 'results': (result) ? result.rows : null };
       console.log("maxid:"+maxid);
 
       const text = 'INSERT INTO player VALUES($1, $2, $3, $4)'
@@ -82,10 +80,11 @@ express()
           console.log(err.stack)
         } else {
           console.log(res.rows[maxid])
-          // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
         }
       })
 
+      const results = await client.query('SELECT * FROM player');
+      const results = { 'results': (result) ? result.rows : null };
       res.render('pages/player', results );
       client.release();
     } catch(err){
