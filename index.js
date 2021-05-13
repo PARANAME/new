@@ -70,8 +70,7 @@ express()
       console.log("change");
       const results = { 'results': (result) ? result.rows : null };
       console.log("reusults:"+results);
-      console.log("reusults[0]:"+results[0]);
-      console.log("reusults[0].max:"+results[0].max);
+      console.log("reusults['max']:"+results['max']);
       res.render('pages/player', results );
       client.release();
     } catch(err){
