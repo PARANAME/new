@@ -83,7 +83,7 @@ express()
         }
       })
 
-      const results = await client.query('SELECT * FROM player');
+      const result = await client.query('SELECT * FROM player');
       const results = { 'results': (result) ? result.rows : null };
       res.render('pages/player', results );
       client.release();
