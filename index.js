@@ -69,8 +69,8 @@ express()
       console.log(result);
       console.log("change");
       const results = { 'results': (result) ? result.rows : null };
-      console.log("reusults:"+results);
-      console.log("reusults['max']:"+results['max']);
+      console.log("reusult.rows:"+result.rows);
+      console.log("result.rows[0].max:"+result.rows[0].max);
       res.render('pages/player', results );
       client.release();
     } catch(err){
