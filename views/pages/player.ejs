@@ -72,18 +72,6 @@
         <h4 class="card-title">HARA</h4>
         <h4 class="card-subtitle mb-2">CLASS:B</h4>
         <div class="text-right">
-          <input type="button" class="btn btn-secondary select" value="Select" id="6">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
-    <div class="card border-secondary"style="max-width: 20rem;">
-      <img class="card-img img_id_1" src="icon_hara2.png" sytle="max-width: 40rem;">
-      <div class="card-body">
-        <h4 class="card-title">HARA</h4>
-        <h4 class="card-subtitle mb-2">CLASS:B</h4>
-        <div class="text-right">
           <input type="button" class="btn btn-secondary select" value="Select" id="1">
         </div>
       </div>
@@ -91,7 +79,7 @@
   </div>
   <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
     <div class="card border-secondary"style="max-width: 20rem;">
-      <img class="card-img img_id_1" src="icon_hara2.png" sytle="max-width: 40rem;">
+      <img class="card-img img_id_2" src="icon_hara2.png" sytle="max-width: 40rem;">
       <div class="card-body">
         <h4 class="card-title">HARA</h4>
         <h4 class="card-subtitle mb-2">CLASS:B</h4>
@@ -103,7 +91,7 @@
   </div>
   <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
     <div class="card border-secondary"style="max-width: 20rem;">
-      <img class="card-img img_id_1" src="icon_hara2.png" sytle="max-width: 40rem;">
+      <img class="card-img img_id_3" src="icon_hara2.png" sytle="max-width: 40rem;">
       <div class="card-body">
         <h4 class="card-title">HARA</h4>
         <h4 class="card-subtitle mb-2">CLASS:B</h4>
@@ -115,7 +103,7 @@
   </div>
   <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
     <div class="card border-secondary"style="max-width: 20rem;">
-      <img class="card-img img_id_1" src="icon_hara2.png" sytle="max-width: 40rem;">
+      <img class="card-img img_id_4" src="icon_hara2.png" sytle="max-width: 40rem;">
       <div class="card-body">
         <h4 class="card-title">HARA</h4>
         <h4 class="card-subtitle mb-2">CLASS:B</h4>
@@ -127,7 +115,7 @@
   </div>
   <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
     <div class="card border-secondary"style="max-width: 20rem;">
-      <img class="card-img img_id_1" src="icon_hara2.png" sytle="max-width: 40rem;">
+      <img class="card-img img_id_5" src="icon_hara2.png" sytle="max-width: 40rem;">
       <div class="card-body">
         <h4 class="card-title">HARA</h4>
         <h4 class="card-subtitle mb-2">CLASS:B</h4>
@@ -137,7 +125,26 @@
       </div>
     </div>
   </div>
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+    <div class="card border-secondary"style="max-width: 20rem;">
+      <img class="card-img img_id_6" src="icon_hara2.png" sytle="max-width: 40rem;">
+      <div class="card-body">
+        <h4 class="card-title">HARA</h4>
+        <h4 class="card-subtitle mb-2">CLASS:B</h4>
+        <div class="text-right">
+          <input type="button" class="btn btn-secondary select" value="Select" id="6">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<form action="/game" method="post">
+  <div class="form-group">
+    <input type="hidden" id="Order_id" name="order" value="Order_value">
+  </div>
+  <button type="submit" class="btn btn-primary">Start Game</button>
+</form>
 
 <ul>
     <% results.forEach(function(r) { %>
