@@ -67,10 +67,25 @@ express()
       const result = await client.query('SELECT max(id) FROM player');
       
       console.log(result);
-      console.log("change");
-      const results = { 'results': (result) ? result.rows : null };
-      console.log("reusult.rows:"+result.rows);
-      console.log("result.rows[0].max:"+result.rows[0].max);
+
+      var maxid = result.rows[0].max;
+      maxid += 1;
+
+//      const results = { 'results': (result) ? result.rows : null };
+      console.log("maxid:"+maxid);
+
+      const text = 'INSERT INTO player VALUES($1, $2, $3, $4)'
+      const values = [maxid,req.body.add_name,req.body.add_class,’icon_test.png’]
+      // callback
+      client.query(text, values, (err, res) => {
+        if (err) {
+          console.log(err.stack)
+        } else {
+          console.log(res.rows[maxid])
+          // { name: 'brianc', email: 'brian.m.carlson@gmail.com' }
+        }
+      })
+
       res.render('pages/player', results );
       client.release();
     } catch(err){
