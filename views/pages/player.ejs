@@ -141,7 +141,7 @@
 <div class="text-right">
   <form action="/game" method="post">
     <div class="form-group">
-      <input type="hidden" id="Order_id" name="order" value="Order_value">
+      <input type="hidden" id="Order_id" name="order_dummy" value="Order_value">
     </div>
     <button type="submit" class="btn btn-primary start_game">Start Game</button>
 </form>
@@ -178,7 +178,11 @@ $('#').on('click', function(){
 */
 
 $('.start_game').on('click', function(){
-  alert('jquery!');
+  alert('post:'+Order);
+  var ele = document.createElement('input');
+  ele.setAttribute('type', 'hidden');
+  ele.setAttribute('name', 'order');
+  ele.setAttribute('value', Order);
 });
 
 </script>
