@@ -16,7 +16,7 @@
             <div class="row">
                 <!--<p id="Messages">Select Players and Order</p>-->
                 <ul>
-                    <% resultrows.forEach(function(r) { %>
+                    <% results.forEach(function(r) { %>
                         <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
                     <% }); %>
                 </ul>
@@ -227,8 +227,8 @@
             var prememberpoint =[];
             var memberoverpoint = [];
             var membercounta = [];
-            var takeover = "<%= Order %>";
-            var takeoverOrder = takeover.split('_');
+            //var takeover = "<%= Order %>";
+            //var takeoverOrder = takeover.split('_');
             for (let i = 0; i < <%= membercount %>; i++){
                 memberpoint.push(0);
                 memberoverpoint.push(0);
@@ -236,9 +236,9 @@
                 prememberpoint.push(0);
             }
 
-            if ( typeof takeover === "undefined"){
-                alert(takeoverOrder[1]);
-            }
+            //if ( typeof takeover === "undefined"){
+            //    alert(takeoverOrder[1]);
+            //}
             $('.btn-circle').on('click', function(){
               var obj = event.target;
               var point = 1;
