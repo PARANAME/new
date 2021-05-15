@@ -31,7 +31,7 @@ express()
     //res.setHeader('Content-Type', 'text/plain');
     var ary = req.body.order.split(',');
     console.log(ary.length);
-    for (let i = ary.length-1; i <0; --i) {
+    for (let i = ary.length-1; i >=0; i--) {
       console.log(i);
     }
 
