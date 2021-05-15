@@ -26,14 +26,19 @@ express()
     res.render('pages/game_start',data);
   })
   .post('/game',(req, res, next) => {
-    console.log("post_game")
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
     var ary = req.body.order.split(',');
-    console.log(ary.length);
+
+    var selectquery = ''
     for (let i = ary.length-1; i >=0; i--) {
-      console.log(i);
+      if (i==0){
+        selectquery += 'select * from player where id ='+ary[i]+' union';
+      } else {
+        selectquery += 'select * from player where id ='+ary[i];
+      }
     }
+    console.log(selectquery);
 
     var data = {
       Order:req.body.order
