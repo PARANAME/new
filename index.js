@@ -42,7 +42,7 @@ express()
       const client = await pool.connect()
       const result = await client.query(selectquery);
       /*const results = { 'results': (result) ? result.rows : null };*/
-      console.log(results);
+      //console.log(results);
       
       var data = {
         Order:req.body.order,
