@@ -26,10 +26,14 @@ express()
     res.render('pages/game_start',data);
   })
   .post('/game',(req, res, next) => {
-    console.log("post!!")
+    console.log("post_game")
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
-    console.log(req.body.order);
+    var ary = req.body.order.split(',');
+    for (let i = ary.length-1; i <0; --i) {
+      console.log(i);
+    }
+
     var data = {
       Order:req.body.order
     };
