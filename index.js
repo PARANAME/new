@@ -46,6 +46,8 @@ express()
       
       var data = {
         Order:req.body.order,
+        score:'33.16.-24,-25',
+        round:'10',
         results:(result) ? result.rows : null
       }
       res.render('pages/game_start',data);
