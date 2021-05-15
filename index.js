@@ -43,6 +43,7 @@ express()
       const result = await client.query(selectquery);
       const results = { 'results': (result) ? result.rows : null };
       console.log(results);
+      res.render('pages/game_start',results);
       client.release();
     } catch(err){
       console.error(err);
@@ -53,7 +54,6 @@ express()
       Order:req.body.order
     };
     */
-    res.render('pages/game_start',results);
   })
   .get('/db', async(req,res)=>{
     try {
