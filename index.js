@@ -48,11 +48,12 @@ express()
       console.error(err);
       res.send("Error "+err);
     }
-
+    /*
     var data = {
       Order:req.body.order
     };
-    res.render('pages/game_start',data);
+    */
+    res.render('pages/game_start',results);
   })
   .get('/db', async(req,res)=>{
     try {

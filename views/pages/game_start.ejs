@@ -14,7 +14,12 @@
 
         <div class="container mb-2">
             <div class="row">
-                <p id="Messages">Select Players and Order <%= Order %></p>
+                <!--<p id="Messages">Select Players and Order <%= Order %></p>-->
+                <ul>
+                    <% results.forEach(function(r) { %>
+                        <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
+                    <% }); %>
+                </ul>
             </div>
             <div class="text-right">
             <form method="post" action="/game">
