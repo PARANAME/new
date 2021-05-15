@@ -25,7 +25,7 @@ express()
     };
     res.render('pages/game_start',data);
   })
-  .post('/game',(req, res, next) => {
+  .post('/game',async(req, res, next) => {
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
     var ary = req.body.order.split(',');
