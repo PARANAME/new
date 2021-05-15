@@ -41,14 +41,14 @@ express()
     try {
       const client = await pool.connect()
       const result = await client.query(selectquery);
-      const results = { 'results': (result) ? result.rows : null };
+      /*const results = { 'results': (result) ? result.rows : null };*/
       console.log(results);
-      /*
+      
       var data = {
         Order:req.body.order,
-        resultrows:results
-      };*/
-      res.render('pages/game_start',results);
+        results:(result) ? result.rows : null
+      }
+      res.render('pages/game_start',data);
       client.release();
     } catch(err){
       console.error(err);
