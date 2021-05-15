@@ -32,8 +32,8 @@ express()
 
     var selectquery = ''
     for (let i = ary.length-1; i >=0; i--) {
-      if (i==0){
-        selectquery += 'select * from player where id ='+ary[i]+' union';
+      if (i!=0){
+        selectquery += 'select * from player where id ='+ary[i]+' union ';
       } else {
         selectquery += 'select * from player where id ='+ary[i];
       }
