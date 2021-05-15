@@ -38,7 +38,16 @@ express()
         selectquery += 'select * from player where id ='+ary[i];
       }
     }
-    console.log(selectquery);
+    try {
+      const client = await pool.connect()
+      const result = await client.query(selectquery);
+      const results = { 'results': (result) ? result.rows : null };
+      console.log(results);
+      client.release();
+    } catch(err){
+      console.error(err);
+      res.send("Error "+err);
+    }
 
     var data = {
       Order:req.body.order
