@@ -46,7 +46,7 @@ express()
       var data = {
         Order:req.body.order,
         resultrows:results
-      }
+      };
       res.render('pages/game_start',data);
       client.release();
     } catch(err){
