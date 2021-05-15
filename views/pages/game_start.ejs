@@ -14,9 +14,9 @@
 
         <div class="container mb-2">
             <div class="row">
-                <!--<p id="Messages">Select Players and Order <%= Order %></p>-->
+                <!--<p id="Messages">Select Players and Order</p>-->
                 <ul>
-                    <% results.forEach(function(r) { %>
+                    <% resultrows.forEach(function(r) { %>
                         <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
                     <% }); %>
                 </ul>
