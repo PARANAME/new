@@ -67,12 +67,12 @@
   <% results.forEach(function(r,i) { %>
     <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
       <div class="card border-secondary"style="max-width: 20rem;">
-        <img class="card-img img_id_<%= i %>" src="<%= r.path %>" sytle="max-width: 40rem;">
+        <img class="card-img img_id_<%= r.id %>" src="<%= r.path %>" sytle="max-width: 40rem;">
         <div class="card-body">
           <h4 class="card-title"><%= r.name %></h4>
           <h4 class="card-subtitle mb-2">CLASS:<%= r.skill %></h4>
           <div class="text-right">
-            <input type="button" class="btn btn-secondary select" value="Select" id="<%= i %>">
+            <input type="button" class="btn btn-secondary select" value="Select" id="<%= r.id %>">
           </div>
         </div>
       </div>
