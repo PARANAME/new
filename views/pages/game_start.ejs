@@ -227,8 +227,6 @@
             var prememberpoint =[];
             var memberoverpoint = [];
             var membercounta = [];
-            //var takeover = "<%= Order %>";
-            //var takeoverOrder = takeover.split('_');
             for (let i = 0; i < <%= membercount %>; i++){
                 memberpoint.push(0);
                 memberoverpoint.push(0);
@@ -236,9 +234,6 @@
                 prememberpoint.push(0);
             }
 
-            //if ( typeof takeover === "undefined"){
-            //    alert(takeoverOrder[1]);
-            //}
             $('.btn-circle').on('click', function(){
               var obj = event.target;
               var point = 1;
