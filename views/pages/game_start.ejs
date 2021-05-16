@@ -26,7 +26,7 @@
             <div class="text-right">
             <form method="post" action="/game">
                 <input type="hidden" name="order" value="1_4_3_2"> 
-                <button type="submit" value="Change Order" class="btn btn-danger CO" disabled>
+                <input type="submit" value="Change Order" class="btn btn-danger CO">
             </form>
             </div>
             <div class="table-responsive mt-2">
@@ -202,9 +202,6 @@
                     }
                 }
                 document.getElementById('flexCheckDefault').checked=false;
-                if(Round%10==0){
-                    $('.co').prop('disabled', false);
-                }
             });
             function getscoredraw(point) {
                 if(point==1){
