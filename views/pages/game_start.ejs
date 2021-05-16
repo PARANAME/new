@@ -48,25 +48,24 @@
                 </thead>
                 <tbody>
                     <% results.forEach(function(r,i) { %>
-                        <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
                         <tr>
                             <th scope="row"><%= r.name %></th>
-                            <td id="t_<%= i %>_1"></td>
-                            <td id="t_<%= i %>_2"></td>
-                            <td id="t_<%= i %>_3"></td>
-                            <td id="t_<%= i %>_4"></td>
-                            <td id="t_<%= i %>_5"></td>
-                            <td id="t_<%= i %>_6"></td>
-                            <td id="t_<%= i %>_7"></td>
-                            <td id="t_<%= i %>_8"></td>
-                            <td id="t_<%= i %>_9"></td>
-                            <td id="t_<%= i %>_10"></td>
+                            <td id="t_<%= (i+1) %>_1"></td>
+                            <td id="t_<%= (i+1) %>_2"></td>
+                            <td id="t_<%= (i+1) %>_3"></td>
+                            <td id="t_<%= (i+1) %>_4"></td>
+                            <td id="t_<%= (i+1) %>_5"></td>
+                            <td id="t_<%= (i+1) %>_6"></td>
+                            <td id="t_<%= (i+1) %>_7"></td>
+                            <td id="t_<%= (i+1) %>_8"></td>
+                            <td id="t_<%= (i+1) %>_9"></td>
+                            <td id="t_<%= (i+1) %>_10"></td>
                         </tr>    
                     <% }); %>
                 </tbody>
             </table>
             </div>
-            <% var membercount = 3; %>
+            <% var membercount = results.lentgh; %>
             <div class="row mb-4">
                 <div class="col-6">
                 </div>
