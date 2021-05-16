@@ -31,14 +31,23 @@ express()
     console.log('post_game:'+req.body.order);
     var ary = req.body.order.split(',');
 
-    var selectquery = ''
-    for (let i = ary.length-1; i >=0; i--) {
-      if (i!=0){
-        selectquery += 'select * from player where id ='+ary[i]+' union ';
+    var selectquery = 'select * from player where id in ('
+    for (let i = 0; i <ary.length; ++i) {  
+      if (i == ary.length-1){
+        selectquery += ary[i]+')';
       } else {
-        selectquery += 'select * from player where id ='+ary[i];
+        selectquery += ary[i]+',';
       }
     }
+    selectquery += 'order by case id';
+    for (let i = 0; i <ary.length; ++i) {  
+      if (i == ary.length-1){
+        selectquery += 'when '+ary[i]+' then '+i+' end';
+      } else {
+        selectquery += 'when '+ary[i]+' then '+i+' ';
+      }
+    }
+
     try {
       const client = await pool.connect()
       const result = await client.query(selectquery);
