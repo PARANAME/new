@@ -28,6 +28,7 @@ express()
   .post('/game',async(req, res, next) => {
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
+    console.log('post_game:'+req.body.order);
     var ary = req.body.order.split(',');
 
     var selectquery = ''
@@ -42,7 +43,7 @@ express()
       const client = await pool.connect()
       const result = await client.query(selectquery);
       /*const results = { 'results': (result) ? result.rows : null };*/
-      //console.log(results);
+      console.log(result.row);
       
       var data = {
         Order:req.body.order,
