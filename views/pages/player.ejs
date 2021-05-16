@@ -177,6 +177,7 @@ var count = 1;
 var Order = [];
 $('.select').on('click', function(){
   var obj = event.target;
+  obj.disabled = true;
   var st = 'img_id_'+obj.id.toString();
   $('.'+st).attr('src', count+'.png');
   Order.push(obj.id);
