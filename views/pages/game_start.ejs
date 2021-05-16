@@ -192,6 +192,9 @@
                     }
 
                 }
+                if(Round%10==0){
+                    document.getElementById("next").disabled = true;
+                }
                 Round +=1;
                 for (let i = 0; i < <%= membercount %>; i++)
                 {
