@@ -197,6 +197,10 @@ $('#').on('click', function(){
 */
 
 $('.start_game').on('click', function(){
+  if(count < 2){
+    alert("select two or more players!!");
+    return false;
+  }
   alert('post:'+Order);
   document.getElementById('Order_id').value=Order;
 /*
