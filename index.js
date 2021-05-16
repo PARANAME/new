@@ -42,11 +42,12 @@ express()
     selectquery += 'order by case id';
     for (let i = 0; i <ary.length; ++i) {  
       if (i == ary.length-1){
-        selectquery += 'when '+ary[i]+' then '+i+' end';
+        selectquery += 'when '+ary[i]+' then '+(i+1)+' end';
       } else {
-        selectquery += 'when '+ary[i]+' then '+i+' ';
+        selectquery += 'when '+ary[i]+' then '+(i+1)+' ';
       }
     }
+    console.log(selectquery);
 
     try {
       const client = await pool.connect()
