@@ -39,7 +39,7 @@ express()
         selectquery += ary[i]+',';
       }
     }
-    selectquery += 'order by case id';
+    selectquery += 'order by case id ';
     for (let i = 0; i <ary.length; ++i) {  
       if (i == ary.length-1){
         selectquery += 'when '+ary[i]+' then '+(i+1)+' end';
