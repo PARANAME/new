@@ -12,6 +12,9 @@
 <h2>Player Results</h2>
 
 <div class="text-right mb-4">
+  <button type="button" class="btn btn-warning" id="cancel">
+    Cancel
+  </button>
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#AddUserModal">
       Add Player
   </button>
@@ -184,7 +187,9 @@ $('.select').on('click', function(){
   count += 1;
   alert(Order);
 });
-
+$('#cancel').on('click', function(){
+  alert("cancel");
+});
 /*
 $('#').on('click', function(){
   var obj = event.target;
