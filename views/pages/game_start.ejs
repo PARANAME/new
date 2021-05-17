@@ -118,7 +118,7 @@
                     </div>  
                 </div>
             <% }); %>
-            <div class="row">
+            <div class="row mt-2">
                 <div class="col-1">
                     <button type="button" class="btn btn-warning" id="cancel">
                         Cancel
@@ -179,6 +179,19 @@
               document.getElementById('CheckSide').checked=false;
               document.getElementById('CheckNine').checked=false;
             });
+            $('#cancel').on('click', function(){
+                for (let i = 0; i < <%= membercount %>; i++)
+                {
+                    document.getElementById('score_'+(i+1)+'_1').innerHTML='';
+                    document.getElementById('score_'+(i+1)+'_2').innerHTML='';
+                    document.getElementById('score_'+(i+1)+'_3').innerHTML='';
+                    document.getElementById('score_'+(i+1)+'_4').innerHTML='';
+                    document.getElementById('score_'+(i+1)+'_5').innerHTML='';
+                    memberpoint[i]=0;
+                    memberoverpoint[i]=0;
+                    membercounta[i]=1;
+                }
+            });    
             $('#next').on('click', function(){
                 for (let i = 0; i < <%= membercount %>; i++)
                 {
