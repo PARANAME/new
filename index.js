@@ -3,6 +3,7 @@ const express = require('express');
 const { request } = require('http');
 const path = require('path')
 const { Pool } = require('pg');
+const { isUndefined } = require('util');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -30,6 +31,13 @@ express()
     //res.setHeader('Content-Type', 'text/plain');
     console.log('post_game:'+req.body.order);
     var ary = req.body.order.split(',');
+    var receipt_score;
+    var receipt_round;
+    if (req.body.score.isUndefined){
+      console.log("receipt_score is undefined");
+    } else {
+      console.log("receipt_score="+req.body.score);
+    }
 
     var selectquery = 'select * from player where id in ('
     for (let i = 0; i <ary.length; ++i) {  
