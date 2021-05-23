@@ -33,7 +33,7 @@ express()
     var ary = req.body.order.split(',');
     var receipt_score;
     var receipt_round;
-    if (req.body.score.isUndefined){
+    if (req.body.score==null){
       console.log("receipt_score is undefined");
     } else {
       console.log("receipt_score="+req.body.score);
