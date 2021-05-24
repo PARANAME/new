@@ -26,14 +26,12 @@ express()
     };
     res.render('pages/game_start',data);
   })
-  //post game is fixed
+
   .post('/game',async(req, res, next) => {
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
     console.log('post_game:'+req.body.order);
     var ary = req.body.order.split(',');
-    //var receipt_score;
-    //var receipt_round;
     if (req.body.score==null){
       console.log("receipt_score is undefined");
     } else {
@@ -76,11 +74,6 @@ express()
       console.error(err);
       res.send("Error "+err);
     }
-    /*
-    var data = {
-      Order:req.body.order
-    };
-    */
   })
   .get('/db', async(req,res)=>{
     try {
@@ -94,7 +87,7 @@ express()
       res.send("Error "+err);
     }
   })
-  //get player is fixed
+
   .get('/player', async(req,res)=>{
     try {
       const client = await pool.connect()
@@ -139,8 +132,13 @@ express()
       })
 
       const result = await client.query('SELECT * FROM player');
-      const results = { 'results': (result) ? result.rows : null };
-      res.render('pages/player', results );
+      var data = {
+        score:'0,0,0,0',
+        round:'0',
+        results:(result) ? result.rows : null
+      }
+      //res.render('pages/player', results );
+      res.render('pages/player', data );
       client.release();
     } catch(err){
       console.error(err);
