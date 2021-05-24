@@ -26,13 +26,14 @@ express()
     };
     res.render('pages/game_start',data);
   })
+  //post game is fixed
   .post('/game',async(req, res, next) => {
     //var msg = req.body['order'];
     //res.setHeader('Content-Type', 'text/plain');
     console.log('post_game:'+req.body.order);
     var ary = req.body.order.split(',');
-    var receipt_score;
-    var receipt_round;
+    //var receipt_score;
+    //var receipt_round;
     if (req.body.score==null){
       console.log("receipt_score is undefined");
     } else {
@@ -65,8 +66,8 @@ express()
       
       var data = {
         Order:req.body.order,
-        score:'33.16.-24,-25',
-        round:'10',
+        score:req.body.score,
+        round:req.body.round,
         results:(result) ? result.rows : null
       }
       res.render('pages/game_start',data);
@@ -93,18 +94,26 @@ express()
       res.send("Error "+err);
     }
   })
+  //get player is fixed
   .get('/player', async(req,res)=>{
     try {
       const client = await pool.connect()
       const result = await client.query('SELECT * FROM player');
-      const results = { 'results': (result) ? result.rows : null };
-      res.render('pages/player', results );
+      //const results = { 'results': (result) ? result.rows : null };
+      var data = {
+        score:'0,0,0,0',
+        round:'0',
+        results:(result) ? result.rows : null
+      }
+      //res.render('pages/player', results );
+      res.render('pages/player', data );
       client.release();
     } catch(err){
       console.error(err);
       res.send("Error "+err);
     }
   })
+  //post player is need to fix
   .post('/player', async(req,res)=>{
     console.log(req.body.add_name+","+req.body.add_class);
     

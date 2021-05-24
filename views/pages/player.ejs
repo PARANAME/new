@@ -163,6 +163,8 @@
   <form action="/game" method="post">
     <div class="form-group">
       <input type="hidden" id="Order_id" name="order" value="Order_value">
+      <input type="hidden" id="Submit_score" name="order" value="<%= score %>">
+      <input type="hidden" id="Submit_round" name="order" value="<%= round %>">
     </div>
     <button type="submit" class="btn btn-primary start_game">Start Game</button>
 </form>
@@ -203,6 +205,8 @@ $('.start_game').on('click', function(){
     alert("select two or more players!!");
     return false;
   }
+  alert(document.getElementById('submit_score'));
+  alert(document.getElementById('submit_round'));
   alert('post:'+Order);
   document.getElementById('Order_id').value=Order;
 /*
