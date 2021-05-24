@@ -20,14 +20,15 @@
                         <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
                     <% }); %>
                 </ul>
+                order:<%= order %>
                 round:<%= round %>
                 score:<%= score %>
             </div>
             <div class="text-right">
             <form method="post" action="/game">
-                <input type="hidden" name="order" value="2,3,1,4"> 
-                <input type="hidden" name="round" value="10"> 
-                <input type="hidden" name="score" value="20,10,-25,-5"> 
+                <input type="hidden" id="order" name="order" value="2,3,1,4"> 
+                <input type="hidden" id="round" name="round" value="10"> 
+                <input type="hidden" id="score" name="score" value="20,10,-25,-5"> 
                 <input type="submit" value="Change Order" class="btn btn-danger CO">
             </form>
             </div>
@@ -227,10 +228,11 @@
                 }
                 document.getElementById('flexCheckDefault').checked=false;
             });
-            $('.co').on('click', function(){
+            $('.CO').on('click', function(){
                 alert('co button is pueshed')
                 document.getElementById('score').value=memberpoint.join(',');
                 document.getElementById('round').value=Round;
+                document.getElementById('order').value=<%= order %>;
                 alert('score:'+document.getElementById('score').value);
                 alert('round:'+document.getElementById('round').value)
             });
