@@ -151,6 +151,7 @@
             var memberoverpoint = [];
             var membercounta = [];
             var memberscore =[];
+            var memberorder = <%= Order %>;
             for (let i = 0; i < <%= membercount %>; i++){
                 memberpoint.push(0);
                 memberoverpoint.push(0);
@@ -236,7 +237,7 @@
                 alert('co button is pueshed')
                 document.getElementById('score').value=memberscore.join(',');
                 document.getElementById('round').value=Round;
-                document.getElementById('order').value=<%= Order %>;
+                document.getElementById('order').value=memberorder.join(',');
                 alert('score:'+document.getElementById('score').value);
                 alert('round:'+document.getElementById('round').value);
                 alert('order:'+document.getElementById('order').value);
