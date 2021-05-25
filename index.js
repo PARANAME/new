@@ -26,6 +26,51 @@ express()
     };
     res.render('pages/game_start',data);
   })
+  .post('/player_change',async(req, res, next)=>{
+    console.log('player_change:'+req.body.order);
+    var ary = req.body.order.split(',');
+    if (req.body.score==null){
+      console.log("receipt_score is undefined");
+    } else {
+      console.log("receipt_score="+req.body.score);
+    }
+    var selectquery = 'select * from player where id in ('
+    for (let i = 0; i <ary.length; ++i) {  
+      if (i == ary.length-1){
+        selectquery += ary[i]+')';
+      } else {
+        selectquery += ary[i]+',';
+      }
+    }
+    selectquery += 'order by case id ';
+    for (let i = 0; i <ary.length; ++i) {  
+      if (i == ary.length-1){
+        selectquery += 'when '+ary[i]+' then '+(i+1)+' end';
+      } else {
+        selectquery += 'when '+ary[i]+' then '+(i+1)+' ';
+      }
+    }
+    console.log(selectquery);
+
+    try {
+      const client = await pool.connect()
+      const result = await client.query(selectquery);
+      /*const results = { 'results': (result) ? result.rows : null };*/
+      console.log(result.row);
+      
+      var data = {
+        Order:req.body.order,
+        score:req.body.score,
+        round:req.body.round,
+        results:(result) ? result.rows : null
+      }
+      res.render('pages/player',data);
+      client.release();
+    } catch(err){
+      console.error(err);
+      res.send("Error "+err);
+    }
+  })
 
   .post('/game',async(req, res, next) => {
     //var msg = req.body['order'];
@@ -94,6 +139,7 @@ express()
       const result = await client.query('SELECT * FROM player');
       //const results = { 'results': (result) ? result.rows : null };
       var data = {
+        Order:'1,2,3,4',
         score:'0,0,0,0',
         round:'0',
         results:(result) ? result.rows : null
@@ -133,6 +179,7 @@ express()
 
       const result = await client.query('SELECT * FROM player');
       var data = {
+        Order:'1,2,3,4',
         score:'0,0,0,0',
         round:'0',
         results:(result) ? result.rows : null
