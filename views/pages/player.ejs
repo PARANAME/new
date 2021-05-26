@@ -182,12 +182,16 @@ score:<%= score %>
 <script>
 var count = 1;
 var Order = [];
+var receipt_score = '<%= score %>'.split(',');
+var receipt_order = '<%= Order %>'.split(',');
+var Score = [];
 $('.select').on('click', function(){
   var obj = event.target;
   obj.disabled = true;
   var st = 'img_id_'+obj.id.toString();
   $('.'+st).attr('src', count+'.png');
   Order.push(obj.id);
+  Score.push(receipt_score[receipt_order.indexOf(obj.id)]);
   count += 1;
   alert(Order);
 });
@@ -207,6 +211,7 @@ $('.start_game').on('click', function(){
     alert("select two or more players!!");
     return false;
   }
+  document.getElementById('Submit_score').value=Order.join(',');
   alert(document.getElementById('Submit_score').value);
   alert(document.getElementById('Submit_round').value);
   alert('post:'+Order);
