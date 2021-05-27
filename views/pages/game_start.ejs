@@ -143,7 +143,8 @@
             </div>
         </div>
         <script>
-            var Round = 1+<%= round %>;
+            var Round = 1
+            var RoundStart = <%= round %>;
             var point = 0;
             var Order = [];
             var memberpoint =[];
@@ -157,7 +158,7 @@
                 memberpoint.push(0);
                 memberoverpoint.push(0);
                 membercounta.push(1);
-                if (Round==1){
+                if (RoundStart==1){
                     prememberpoint.push(0);
                 } else {
                     prememberpoint[i]=receipt_score[i];
@@ -242,7 +243,7 @@
             $('.CO').on('click', function(){
                 alert('co button is pueshed')
                 document.getElementById('score').value=memberscore.join(',');
-                document.getElementById('round').value=Round;
+                document.getElementById('round').value=Round+RoundStart;
                 document.getElementById('order').value=memberorder;
                 alert('score:'+document.getElementById('score').value);
                 alert('round:'+document.getElementById('round').value);
