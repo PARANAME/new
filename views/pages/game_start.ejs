@@ -217,7 +217,7 @@
                         }
                     }
                     if(Round==1){
-                        document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = mypoint+prememberpoint[i];
+                        document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = mypoint+Number(prememberpoint[i]);
                         memberscore[i] =  mypoint+prememberpoint[i];
                     } else{
                         document.getElementById('t_'+(i+1)+'_'+Round).innerHTML = mypoint+Number(document.getElementById('t_'+(i+1)+'_'+(Round-1)).textContent);
