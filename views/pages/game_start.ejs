@@ -37,16 +37,16 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">1</th>
-                        <th scope="col">2</th>
-                        <th scope="col">3</th>
-                        <th scope="col">4</th>
-                        <th scope="col">5</th>
-                        <th scope="col">6</th>
-                        <th scope="col">7</th>
-                        <th scope="col">8</th>
-                        <th scope="col">9</th>
-                        <th scope="col">10</th>
+                        <th scope="col">1+<%= round %></th>
+                        <th scope="col">2+<%= round %></th>
+                        <th scope="col">3+<%= round %></th>
+                        <th scope="col">4+<%= round %></th>
+                        <th scope="col">5+<%= round %></th>
+                        <th scope="col">6+<%= round %></th>
+                        <th scope="col">7+<%= round %></th>
+                        <th scope="col">8+<%= round %></th>
+                        <th scope="col">9+<%= round %></th>
+                        <th scope="col">10+<%= round %></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -243,7 +243,7 @@
             $('.CO').on('click', function(){
                 alert('co button is pueshed')
                 document.getElementById('score').value=memberscore.join(',');
-                document.getElementById('round').value=Round+RoundStart;
+                document.getElementById('round').value=Round+RoundStart-1;
                 document.getElementById('order').value=memberorder;
                 alert('score:'+document.getElementById('score').value);
                 alert('round:'+document.getElementById('round').value);
