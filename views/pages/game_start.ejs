@@ -37,16 +37,16 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col"><script><%= round %>+1</script></th>
-                        <th scope="col"><%= round + 2 %></th>
-                        <th scope="col"><%= round + 3 %></th>
-                        <th scope="col"><%= round + 4 %></th>
-                        <th scope="col"><%= round + 5 %></th>
-                        <th scope="col"><%= round + 6 %></th>
-                        <th scope="col"><%= round + 7 %></th>
-                        <th scope="col"><%= round + 8 %></th>
-                        <th scope="col"><%= round + 9 %></th>
-                        <th scope="col"><%= round + 10 %></th>
+                        <th scope="col" id="rd_1"></th>
+                        <th scope="col" id="rd_2"></th>
+                        <th scope="col" id="rd_3"></th>
+                        <th scope="col" id="rd_4"></th>
+                        <th scope="col" id="rd_5"></th>
+                        <th scope="col" id="rd_6"></th>
+                        <th scope="col" id="rd_7"></th>
+                        <th scope="col" id="rd_8"></th>
+                        <th scope="col" id="rd_9"></th>
+                        <th scope="col" id="rd_10"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -154,6 +154,16 @@
             var memberscore =[];
             var receipt_score = '<%= score %>'.split(',');
             var memberorder = '<%= Order %>';
+            document.getElementById('rd_1').innerHTML=RoundStart+1;
+            document.getElementById('rd_2').innerHTML=RoundStart+2;
+            document.getElementById('rd_3').innerHTML=RoundStart+3;
+            document.getElementById('rd_4').innerHTML=RoundStart+4;
+            document.getElementById('rd_5').innerHTML=RoundStart+5;
+            document.getElementById('rd_6').innerHTML=RoundStart+6;
+            document.getElementById('rd_7').innerHTML=RoundStart+7;
+            document.getElementById('rd_8').innerHTML=RoundStart+8;
+            document.getElementById('rd_9').innerHTML=RoundStart+9;
+            document.getElementById('rd_10').innerHTML=RoundStart+10;
             for (let i = 0; i < <%= membercount %>; i++){
                 memberpoint.push(0);
                 memberoverpoint.push(0);
