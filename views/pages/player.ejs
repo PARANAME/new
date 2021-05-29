@@ -9,10 +9,11 @@
 <%- include ("../partials/nav.ejs") %>
 
 <div class="container">
-<h2>Player Results</h2>
+<h2>Select 5-9 Players</h2>
+<!--
 round:<%= round %>
 score:<%= score %>
-
+-->
 <div class="text-right mb-4">
   <button type="button" class="btn btn-secondary mr-2" onclick="location.href='/player'">
     Cancel
@@ -171,13 +172,13 @@ score:<%= score %>
     <button type="submit" class="btn btn-primary start_game">Start Game</button>
 </form>
 </div>
-
+<!--
 <ul>
     <% results.forEach(function(r) { %>
         <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
     <% }); %>
 </ul>
-
+-->
 </div>
 <script>
 var count = 1;
@@ -212,9 +213,9 @@ $('.start_game').on('click', function(){
     return false;
   }
   document.getElementById('Submit_score').value=Score.join(',');
-  alert(document.getElementById('Submit_score').value);
-  alert(document.getElementById('Submit_round').value);
-  alert('post:'+Order);
+  //alert(document.getElementById('Submit_score').value);
+  //alert(document.getElementById('Submit_round').value);
+  //alert('post:'+Order);
   document.getElementById('Order_id').value=Order;
 /*
   var ele = document.createElement('input');

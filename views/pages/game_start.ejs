@@ -14,15 +14,11 @@
 
         <div class="container mb-2">
             <div class="row">
-                <!--<p id="Messages">Select Players and Order</p>-->
-                <ul>
-                    <% results.forEach(function(r) { %>
-                        <li><%= r.id %> - <%= r.name %> - <%= r.skill %></li>
-                    <% }); %>
-                </ul>
+                <!--
                 order:<%= Order %>
                 round:<%= round %>
                 score:<%= score %>
+                -->
             </div>
             <div class="text-right">
             <form method="post" action="/player_change">
@@ -187,7 +183,7 @@
                   point = point * 2;
               }
               memberpoint[obj.id-1]+=point;
-              alert(memberpoint[obj.id-1]);
+//              alert(memberpoint[obj.id-1]);
 //              alert(obj);
               var st = 'score_'+obj.id.toString()+'_'+membercounta[obj.id-1].toString();
 //              $('.'+st).attr('src', count+'.png');
@@ -251,13 +247,13 @@
                 document.getElementById('flexCheckDefault').checked=false;
             });
             $('.CO').on('click', function(){
-                alert('co button is pueshed')
+                //alert('co button is pueshed')
                 document.getElementById('score').value=memberscore.join(',');
                 document.getElementById('round').value=Round+RoundStart-1;
                 document.getElementById('order').value=memberorder;
-                alert('score:'+document.getElementById('score').value);
-                alert('round:'+document.getElementById('round').value);
-                alert('order:'+document.getElementById('order').value);
+                //alert('score:'+document.getElementById('score').value);
+                //alert('round:'+document.getElementById('round').value);
+                //alert('order:'+document.getElementById('order').value);
             });
             function getscoredraw(point) {
                 if(point==1){
