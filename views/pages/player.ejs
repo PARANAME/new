@@ -216,7 +216,7 @@ $('.start_game').on('click', function(){
     return false;
   }
   if(<%= round %> > 0){
-    if(count != receipt_order.length){
+    if(count != (receipt_order.length+1)){
       alert("select all players");
       return false
     }
