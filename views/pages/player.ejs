@@ -15,10 +15,10 @@ round:<%= round %>
 score:<%= score %>
 -->
 <div class="text-right mb-4">
-  <button type="button" class="btn btn-secondary mr-2" onclick="location.href='/player'">
+  <button type="button" class="btn btn-secondary contrl mr-2" onclick="location.href='/player'">
     Cancel
   </button>
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#AddUserModal">
+  <button type="button" class="btn btn-danger contrl" data-toggle="modal" data-target="#AddUserModal">
       Add Player
   </button>
   <div class="modal" id="AddUserModal" tabindex="-1" role="dialog" aria-labelledby="AddUserModalLabel" aria-hidden="true">
@@ -186,6 +186,9 @@ var Order = [];
 var receipt_score = '<%= score %>'.split(',');
 var receipt_order = '<%= Order %>'.split(',');
 var Score = [];
+if(<%= round %> > 0){
+  $('.contrl').hide();
+}
 $('.select').on('click', function(){
   var obj = event.target;
   obj.disabled = true;
@@ -194,7 +197,7 @@ $('.select').on('click', function(){
   Order.push(obj.id);
   Score.push(receipt_score[receipt_order.indexOf(obj.id)]);
   count += 1;
-  alert(Order);
+  //alert(Order);
 });
 /*
 $('#').on('click', function(){
