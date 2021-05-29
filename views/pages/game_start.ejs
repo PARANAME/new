@@ -127,7 +127,7 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="Masuwari">
                         <label class="form-check-label" for="flexCheckDefault">
                           マスワリ
                         </label>
@@ -212,6 +212,12 @@
                 }
             });    
             $('#next').on('click', function(){
+                if(document.getElementById('Masuwari').checked){
+                    for(let i = 0; i < <%= membercount %>; i++){
+                        memberpoint[i] = memberpoint[i]*2;
+                    }
+                }
+                document.getElementById('Masuwari').checked=false;
                 for (let i = 0; i < <%= membercount %>; i++)
                 {
                     var mypoint = 0;

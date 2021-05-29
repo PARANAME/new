@@ -215,6 +215,12 @@ $('.start_game').on('click', function(){
     alert("select two or more players!!");
     return false;
   }
+  if(<%= round %> > 0){
+    if(count != receipt_order.length){
+      alert("select all players");
+      return false
+    }
+  }
   document.getElementById('Submit_score').value=Score.join(',');
   //alert(document.getElementById('Submit_score').value);
   //alert(document.getElementById('Submit_round').value);
