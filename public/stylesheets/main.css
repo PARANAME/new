@@ -22,7 +22,7 @@
 }
 
 .testtest {
-  width: calc((300/640)*100%);
+  width: calc((290/640)*100%);
   background: #e7e7e7;
 }
 
@@ -31,6 +31,7 @@
   justify-content: space-between;
   max-width: 640px;
   margin: 0 auto;
+  padding: 20px;
   outline: 1px dashed #999;
 }
 
