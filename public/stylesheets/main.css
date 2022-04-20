@@ -22,8 +22,14 @@
 }
 
 .testtest {
-  width: 50%;
-  border: 1px dashed #999;
+  width: calc((300/640)*100%);
+  background: #e7e7e7;
+}
+
+.rowtest{
+  max-width: 640px;
+  margin: 0 auto;
+  outline: 1px dashed #999;
 }
 
 .jumbotron {
