@@ -22,7 +22,8 @@
 }
 
 .testtest {
-  background: #eee;
+  width: 50%;
+  border: 1px dashed #999;
 }
 
 .jumbotron {
