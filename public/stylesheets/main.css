@@ -22,7 +22,7 @@
 }
 
 .testtest {
-  width: calc((290/640)*100%);
+  width: calc((290/600)*100%);
   background: #e7e7e7;
 }
 
