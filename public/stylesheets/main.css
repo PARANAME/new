@@ -21,18 +21,20 @@
   white-space: nowrap;
 }
 
-.testtest {
-  width: calc((186/600)*100%);
-  background: #e7e7e7;
+・cardList__item + .cardList__item{
+  margin-top: 30px;
 }
-
-.rowtest{
-  display: flex;
-  justify-content: space-between;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 20px;
-  outline: 1px dashed #999;
+@media screen and (min-width: 768px),print{
+  .cardList{
+    display:flex;
+    justify-content: space-between;
+  }
+  .cardList__item{
+    width: calc((100% -60px)/3);
+  }
+  .cardList__item + .cardList__item {
+    margin-top: 0px;
+  }
 }
 
 .jumbotron {
